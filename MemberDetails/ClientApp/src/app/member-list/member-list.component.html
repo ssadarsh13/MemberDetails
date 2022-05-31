@@ -1,0 +1,36 @@
+<div class="member-list-header">
+    <h2>Member List</h2>
+    <button (click)="addMember()"> <span class="glyphicon glyphicon-plus"></span> Add Member</button>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let member of members">
+                <tr>
+                    <td scope="row">{{member.firstName}}</td>
+                    <td>{{member.middleName}}</td>
+                    <td>{{member.lastName}}</td>
+                    <td>{{member.age}}</td>
+                    <td>{{member.gender}}</td>
+                    <td>
+                        <div class="action">
+                            <span (click)="editMember(member)" class="glyphicon glyphicon-pencil"></span>
+                            <span (click)="deleteMember(member.id)" class="glyphicon glyphicon-trash"></span>
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

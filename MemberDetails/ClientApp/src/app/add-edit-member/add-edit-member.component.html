@@ -1,0 +1,34 @@
+<form class="member-form" [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+
+    <p>
+        <label style="width: 75px;" for="firstname">First Name </label>
+        <input type="text" id="firstname" name="firstName" formControlName="firstName">
+    </p>
+
+    <p>
+        <label style="width: 75px;" for="lastname">Last Name </label>
+        <input type="text" id="lastname" name="lastName" formControlName="lastName">
+    </p>
+
+    <p>
+        <label style="width: 75px;" for="lastname">Last Name </label>
+        <input type="text" id="lastname" name="middleName" formControlName="middleName">
+    </p>
+
+    <p>
+        <label style="width: 75px;" for="gender">Gender </label>
+        <input type="radio" value="Male" id="gender" name="gender" formControlName="gender"> Male
+        <input type="radio" value="Female" id="gender" name="gender" formControlName="gender"> Female
+    </p>
+
+    <p>
+        <label style="width: 75px;" for="isMarried">Age </label>
+        <input type="number" id="age" name="age" formControlName="age">
+    </p>
+
+    <p style="margin-top: 15px;margin-left: 25px;">
+        <button type="submit">Submit</button>
+        <button type="button" (click)="cancel()">Cancel</button>
+    </p>
+
+</form>

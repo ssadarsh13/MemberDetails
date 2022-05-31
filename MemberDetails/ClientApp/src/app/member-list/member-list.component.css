@@ -1,0 +1,12 @@
+.table>thead>tr>th, .table>tbody>tr>td {
+    line-height: 3;
+    font-size: 14px;
+}
+
+
+.action {
+    display: flex;
+    flex-direction: row;
+    column-gap: 6px;
+    line-height: 3;
+}
