@@ -21,6 +21,7 @@ export class AddEditMemberComponent implements OnInit {
   });
 
   public memberId: string;
+  public isFormSubmitted: boolean = false;
 
   constructor(private _activatedRoute: ActivatedRoute, private memberService: MemberService, private router: Router) {
 
@@ -37,14 +38,15 @@ export class AddEditMemberComponent implements OnInit {
           lastName: new FormControl(member.lastName, [Validators.required]),
           middleName: new FormControl(member.middleName),
           gender: new FormControl(member.gender, [Validators.required]),
-          age: new FormControl(member.age, [Validators.required]),
+          age: new FormControl(member.age, [Validators.required, Validators.minLength(1)]),
         })
-      })
+      })  
     }
 
   }
 
   onSubmit() {
+    this.isFormSubmitted = true;
     if (!this.memberForm.invalid) {
       if (this.memberId) {
         this.memberService.updateMember(this.memberForm.value).subscribe(data => {
@@ -56,6 +58,7 @@ export class AddEditMemberComponent implements OnInit {
           this.router.navigate(['/']);
         })
       }
+      this.isFormSubmitted = false;
     }
   }
 

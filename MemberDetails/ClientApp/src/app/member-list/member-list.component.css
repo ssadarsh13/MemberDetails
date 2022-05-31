@@ -7,6 +7,22 @@
 .action {
     display: flex;
     flex-direction: row;
-    column-gap: 6px;
+    column-gap: 24px;
     line-height: 3;
+    padding-top: 12px;
+}
+.action > span{
+    cursor: pointer;
+}
+
+
+.member-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.btn-primary{
+    height: 35px;
 }

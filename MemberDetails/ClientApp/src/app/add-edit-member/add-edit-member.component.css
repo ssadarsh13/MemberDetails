@@ -1,13 +1,22 @@
 
 
-.member-form >p {
-   display: flex;
-   flex-direction: row;
-   column-gap:  8px;
+.member-form {
+   width: 500px;
 }
 
 .member-list-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+    justify-content: right;
+}
+
+.error {
+    color: crimson !important;
 }

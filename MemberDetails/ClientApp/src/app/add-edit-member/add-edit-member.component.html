@@ -1,34 +1,61 @@
 <form class="member-form" [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <h2 *ngIf="!memberId">Add new member</h2>
+    <h2 *ngIf="memberId">Edit member</h2>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" aria-describedby="error-text"
+            placeholder="First Name" required>
+        <small *ngIf="memberForm.controls['firstName'].invalid && (isFormSubmitted || memberForm.controls['firstName'].dirty || memberForm.controls['firstName'].touched)" id="error-text" class="error form-text text-muted">First name is required.</small>
+    </div>
 
-    <p>
-        <label style="width: 75px;" for="firstname">First Name </label>
-        <input type="text" id="firstname" name="firstName" formControlName="firstName">
-    </p>
 
-    <p>
-        <label style="width: 75px;" for="lastname">Last Name </label>
-        <input type="text" id="lastname" name="lastName" formControlName="lastName">
-    </p>
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastName" formControlName="lastName"
+            aria-describedby="error-text-lastName" placeholder="Last Name" required>
+        <small *ngIf="memberForm.controls['lastName'].invalid && (isFormSubmitted || memberForm.controls['lastName'].dirty || memberForm.controls['lastName'].touched)" id="error-text-lastName" class="error form-text text-muted">Last name is required</small>
+    </div>
 
-    <p>
-        <label style="width: 75px;" for="lastname">Last Name </label>
-        <input type="text" id="lastname" name="middleName" formControlName="middleName">
-    </p>
+    <div class="form-group">
+        <label for="middleName">Middle Name</label>
+        <input type="text" class="form-control" id="middleName" name="middleName" formControlName="middleName"
+            placeholder="Middle Name">
+    </div>
 
-    <p>
-        <label style="width: 75px;" for="gender">Gender </label>
-        <input type="radio" value="Male" id="gender" name="gender" formControlName="gender"> Male
-        <input type="radio" value="Female" id="gender" name="gender" formControlName="gender"> Female
-    </p>
+    <div class="form-group">
+        <label style="width: 75px; margin-bottom: 12px;" for="gender">Gender </label>
+        <div style="display: flex;flex-direction:row;column-gap:8px">
+            <div class="form-check">
+                <input style="margin-right: 4px;" class="form-check-input" value="Male" id="gender-male" type="radio"
+                    name="gender" formControlName="gender" id="flexRadioDefault1">
+                <label class="form-check-label" for="gender-male">
+                    Male
+                </label>
+            </div>
 
-    <p>
-        <label style="width: 75px;" for="isMarried">Age </label>
-        <input type="number" id="age" name="age" formControlName="age">
-    </p>
 
-    <p style="margin-top: 15px;margin-left: 25px;">
-        <button type="submit">Submit</button>
-        <button type="button" (click)="cancel()">Cancel</button>
-    </p>
+            <div class="form-check">
+                <input style="margin-right: 4px;" class="form-check-input" type="radio" value="Female"
+                    id="gender-female" name="gender" formControlName="gender" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="gender-female">
+                    Female
+                </label>
+            </div>
+        </div>
+        <small *ngIf="memberForm.controls['gender'].invalid && (isFormSubmitted || memberForm.controls['gender'].dirty || memberForm.controls['gender'].touched)" id="error-text-lastName" class="error form-text text-muted">Gender is required</small>
+    
+    </div>
+
+
+    <div class="form-group">
+        <label style="width: 75px;" for="age">Age</label>
+        <input type="number" min="1" class="form-control" id="age" name="age" formControlName="age" placeholder="Age" required>
+        <small *ngIf="memberForm.controls['age'].invalid && ( isFormSubmitted || memberForm.controls['age'].dirty || memberForm.controls['age'].touched)" id="error-text-lastName" class="error form-text text-muted">Age is required</small>
+    </div>
+
+    <div class="button-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-secondary" type="button" (click)="cancel()">Cancel</button>
+    </div>
 
 </form>

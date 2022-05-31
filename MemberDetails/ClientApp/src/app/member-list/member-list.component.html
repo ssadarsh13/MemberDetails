@@ -1,6 +1,6 @@
 <div class="member-list-header">
     <h2>Member List</h2>
-    <button (click)="addMember()"> <span class="glyphicon glyphicon-plus"></span> Add Member</button>
+    <button type="button" (click)="addMember()" class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Add Member</button>
 </div>
 
 <div class="table-responsive">
@@ -25,8 +25,8 @@
                     <td>{{member.gender}}</td>
                     <td>
                         <div class="action">
-                            <span (click)="editMember(member)" class="glyphicon glyphicon-pencil"></span>
-                            <span (click)="deleteMember(member.id)" class="glyphicon glyphicon-trash"></span>
+                            <span title="Edit Member" (click)="editMember(member)" class="glyphicon glyphicon-pencil"></span>
+                            <span title="Delete Member" (click)="deleteMember(member.id)" class="glyphicon glyphicon-trash"></span>
                         </div>
                     </td>
                 </tr>
